@@ -4,7 +4,6 @@ The purpose of this repo is to establish connection between two pods
 
 Pod 1: contains the container of flask application
 
-
 pod 2: contains the container of mysql
 
 
@@ -38,7 +37,9 @@ gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 
 # Create the new cluster
 gcloud container clusters create cluster-name --num-nodes=2
+
 ex:
+
 gcloud container clusters create demo --num-nodes=2
 
 
@@ -76,6 +77,9 @@ then run the content from db.sql file in that mysql
 # Remove the created cluster
 
 gcloud container clusters delete cluster-name
-ex: 
+
+ex:
+
 gcloud container clusters delete flask-mysql-cluster
+
 gcloud container clusters delete demo
