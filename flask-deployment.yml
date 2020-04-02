@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapp
+  labels:
+    app: flaskapp-sql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskapp-sql
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: flaskapp-sql
+        tier: frontend
+    spec:
+      containers:
+      - name: flaskapp
+        image: "gcr.io/testing-project-272008/src_app"
+        ports:
+        - containerPort: 5000

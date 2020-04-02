@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: sqldb
+  labels:
+    app: flaskapp-sql
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskapp-sql
+      tier: backend
+  template:
+    metadata: 
+      labels:
+        app: flaskapp-sql
+        tier: backend
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        name: mysql
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
