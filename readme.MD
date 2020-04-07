@@ -83,3 +83,28 @@ ex:
 gcloud container clusters delete flask-mysql-cluster
 
 gcloud container clusters delete demo
+
+# Setup the prometheus and grafana to monitor the kubernetes cluster and applications running on it
+
+```console
+cd prometheus
+kubectl apply -f namespace.yml
+kubectl apply -f clusterRole.yml
+kubectl apply -f configMap.yml
+kubectl apply -f prometheus-depolyment.yml
+
+cd ..
+cd grafana
+kubectl apply -f grafana-datasource-config.yaml
+kubectl apply -f grafana-deployment.yaml
+kubectl apply -f grafana-service.yaml
+```
+
+## Check running pods
+```console
+kubectl get pods -n monitoring
+```
+## Check running services
+```console
+kubectl get services -n monitoring
+```
