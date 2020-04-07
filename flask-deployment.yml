@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flaskapp
+  namespace: monitoring
   labels:
     app: flaskapp-sql
 spec:
@@ -18,6 +19,6 @@ spec:
     spec:
       containers:
       - name: flaskapp
-        image: "gcr.io/testing-project-272008/src_app"
+        image: "gcr.io/testing-project-272008/flaskapp:prometheus"
         ports:
         - containerPort: 5000
