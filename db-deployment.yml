@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: sqldb
+  namespace: monitoring
   labels:
     app: flaskapp-sql
     tier: backend
